@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:weightSum="1" >
+
+    <Button
+        android:onClick="quiz1"
+        android:padding="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="#FFDADA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:text="@string/quiz1"/>
+
+    <Button
+        android:onClick="quiz2"
+        android:padding="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="#97FFB2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:text="@string/quiz2" />
+
+    <Button
+        android:onClick="quiz3"
+        android:padding="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="#9FDBF3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:text="@string/quiz3" />
+
+    <Button
+        android:onClick="logout"
+        android:padding="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="#D0DFB0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:text="logout" />
+
+</LinearLayout>

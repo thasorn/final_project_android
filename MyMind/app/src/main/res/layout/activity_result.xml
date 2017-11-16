@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/head_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:text="Result"
+        android:textAlignment="center"
+        android:gravity="top"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/des_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.25"
+        android:text="Result"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:textColor="#000"/>
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:src="@drawable/stress"
+        android:adjustViewBounds="true"/>
+
+    <Button
+        android:id="@+id/share_facebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.4"
+        android:text="Share this result to your facebook"
+        android:textAlignment="center"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:onClick="shareFacebook"/>
+</LinearLayout>
