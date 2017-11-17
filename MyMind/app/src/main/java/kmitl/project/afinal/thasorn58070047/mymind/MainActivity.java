@@ -179,9 +179,6 @@ public class MainActivity extends AppCompatActivity {
                     changeTextQuestion(question);
                 }
 
-                Toast.makeText(MainActivity.this,
-                       Integer.toString(num) , Toast.LENGTH_SHORT).show();
-
             }
 
         });

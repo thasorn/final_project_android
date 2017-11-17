@@ -40,30 +40,10 @@ public class LoginActivity extends Activity {
         loginButton.setReadPermissions("user_friends");
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(LoginActivity.this,
-                        "YES!", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getBaseContext(), ChooseActivity.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
             }
         });
-//        // Callback registration
-//        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//
-//            }
-//
-//            @Override
-//            public void onCancel() {
-//
-//            }
-//
-//            @Override
-//            public void onError(FacebookException exception) {
-//                Toast.makeText(LoginActivity.this,
-//                        "Error", Toast.LENGTH_SHORT).show();
-//            }
-//        });
     }
 }

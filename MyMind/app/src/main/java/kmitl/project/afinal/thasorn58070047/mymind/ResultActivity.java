@@ -30,8 +30,6 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
         Bundle extras = getIntent().getExtras();
         String value = extras.getString("result");
-        Toast.makeText(ResultActivity.this,
-                value, Toast.LENGTH_SHORT).show();
         result(value);
     }
 
@@ -61,21 +59,18 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     public void shareFacebook(View v){
-        Toast.makeText(ResultActivity.this,
-                "YES SHARE" , Toast.LENGTH_SHORT).show();
 
-        boolean connected = false;
+        boolean connected;
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-            //we are connected to a network
             connected = true;
         }
         else
             connected = false;
         if(connected == false){
             Toast.makeText(ResultActivity.this,
-                    "Require internet connection" , Toast.LENGTH_SHORT).show();
+                    "กรุณาเชื่อมต่ออินเตอร์เน็ต" , Toast.LENGTH_SHORT).show();
         } else{
             Bundle extras = getIntent().getExtras();
             String value = extras.getString("result");

@@ -19,6 +19,8 @@ public class ChooseActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
+        Toast.makeText(ChooseActivity.this,
+                "ยินดีต้อนรับสู่ MyMind!", Toast.LENGTH_SHORT).show();
     }
 
     public void quiz1(View v){
@@ -53,7 +55,7 @@ public class ChooseActivity extends AppCompatActivity{
 
     public void logout(View v){
         Toast.makeText(ChooseActivity.this,
-                "Logout ! Have a nice day!", Toast.LENGTH_SHORT).show();
+                "ออกจากระบบ! ขอให้วันนี้เป็นวันที่ดี!", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(getBaseContext(), LoginActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         if(AccessToken.getCurrentAccessToken() != null) {
