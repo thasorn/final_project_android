@@ -40,8 +40,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Score container
         num = 0;
 
+        //Receive value from choose page and set question
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             String value = extras.getString("whatQuiz");
@@ -110,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
         addListenerOnButton();
 
+        //set radio button
         RadioGroup rg = (RadioGroup) findViewById(R.id.radioGroup);
 
         question.setText(quiz[i]);
@@ -118,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         radio3.setText(ans[i][2]);
         radio4.setText(ans[i][3]);
 
+        //set what user choose
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -154,28 +158,37 @@ public class MainActivity extends AppCompatActivity {
 
         question.setText(quiz[i]);
 
+        //set what user choose
         btnDisplay.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
                 if (check.equals("1")){
+                    //check answer
                     checkAns(check);
+                    //set question text
                     changeTextQuestion(question);
                 }
 
                 if (check.equals("2")){
+                    //check answer
                     checkAns(check);
+                    //set question text
                     changeTextQuestion(question);
                 }
 
                 if (check.equals("3")){
+                    //check answer
                     checkAns(check);
+                    //set question text
                     changeTextQuestion(question);
                 }
 
                 if (check.equals("4")){
+                    //check answer
                     checkAns(check);
+                    //set question text
                     changeTextQuestion(question);
                 }
 
@@ -194,6 +207,7 @@ public class MainActivity extends AppCompatActivity {
             Bundle extras = getIntent().getExtras();
             if (extras != null) {
                 String value = extras.getString("whatQuiz");
+                //set result
                 if (value.equals("1")) {
                     if(num > 2){
                         s.putExtra("result", "sick");
@@ -216,6 +230,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
+            //go to result page
             s.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(s);
         } else {
@@ -327,12 +342,14 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
+        //Show text are you sure you want to quit?
         builder.setTitle("ออกจากการทำแบบสอบถาม");
         builder.setMessage("คุณแน่ใจหรือไม่ว่าต้องการหยุดการทำแบบสอบถามและกลับไปยังหน้าเลือกแบบสอบถาม? คุณอาจสูญเสียกระบวนการที่ได้ทำมาทั้งหมดไป");
 
         builder.setPositiveButton("ใช่ (Y)", new DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialog, int which) {
+                //if yes go to choose page
                 Intent i = new Intent(getApplicationContext(), ChooseActivity.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
@@ -346,10 +363,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
+                //if no close dialog
                 dialog.dismiss();
             }
         });
 
+        //create and show dialog
         AlertDialog alert = builder.create();
         alert.show();
     }

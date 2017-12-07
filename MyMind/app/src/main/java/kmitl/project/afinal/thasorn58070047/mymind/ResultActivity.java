@@ -34,14 +34,17 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     public void result(String value){
+        //get result from main activity
         if (value.equals("sick")){
             TextView head_result = (TextView)findViewById(R.id.head_result);
             head_result.setText(getResources().getString(R.string.head_result_sick));
             head_result.setTextColor(Color.parseColor("#FF1919"));
 
+            //show text you are sick
             TextView des_result = (TextView)findViewById(R.id.des_result);
             des_result.setText(getResources().getString(R.string.des_result_sick));
 
+            //show stressful image
             ImageView img= (ImageView) findViewById(R.id.image);
             img.setImageResource(R.drawable.stress);
         }
@@ -50,9 +53,11 @@ public class ResultActivity extends AppCompatActivity {
             head_result.setText(getResources().getString(R.string.head_result_fine));
             head_result.setTextColor(Color.parseColor("#198CFF"));
 
+            //show text you are fine
             TextView des_result = (TextView)findViewById(R.id.des_result);
             des_result.setText(getResources().getString(R.string.des_result_fine));
 
+            //show image you are happy
             ImageView img= (ImageView) findViewById(R.id.image);
             img.setImageResource(R.drawable.happy);
         }
@@ -60,6 +65,7 @@ public class ResultActivity extends AppCompatActivity {
 
     public void shareFacebook(View v){
 
+        //check internet connection
         boolean connected;
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
@@ -69,9 +75,11 @@ public class ResultActivity extends AppCompatActivity {
         else
             connected = false;
         if(connected == false){
+            //if not connected to internet, show toast tto user, please connect
             Toast.makeText(ResultActivity.this,
                     "กรุณาเชื่อมต่ออินเตอร์เน็ต" , Toast.LENGTH_SHORT).show();
         } else{
+            //show share page
             Bundle extras = getIntent().getExtras();
             String value = extras.getString("result");
             if (value.equals("sick")){
@@ -95,6 +103,7 @@ public class ResultActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        //check press back and go to choose page
         Intent i = new Intent(getApplicationContext(), ChooseActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
